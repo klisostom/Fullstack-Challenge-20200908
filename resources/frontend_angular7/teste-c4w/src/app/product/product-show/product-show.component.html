@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="panel" *ngIf="isLoadingResults">
+        <button class="button is-loading" *ngIf="isLoadingResults">
+            Loading
+        </button>
+    </div>
+
+    <div class="field">
+        <button class="button" color="accent" [routerLink]="['/produtos']">
+            Voltar
+        </button>
+    </div>
+    <div class="card">
+        <div class="card-content">
+            <h6 class="title is-6">
+                <label class="label">Title</label>{{ produto.title }}
+            </h6>
+            <h6 class="title is-6">
+                <label class="label">Description</label
+                >{{ produto.description }}
+            </h6>
+            <h6 class="title is-6">
+                <label class="label">Type</label>{{ produto.type }}
+            </h6>
+            <h6 class="title is-6">
+                <label class="label">Filename</label>{{ produto.filename }}
+            </h6>
+            <h6 class="title is-6">
+                <label class="label">Height</label>{{ produto.height }}
+            </h6>
+            <h6 class="title is-6">
+                <label class="label">Width</label>{{ produto.width }}
+            </h6>
+            <h6 class="title is-6">
+                <label class="label">Rating</label>{{ produto.rating }}
+            </h6>
+            <h6 class="title is-6">
+                <label class="label">Price</label>{{ produto.price }}
+            </h6>
+
+            <div class="content">
+                <h6>Atualizado em:</h6>
+                <h6>{{ produto.updated_at | date }}</h6>
+            </div>
+
+            <div class="field is-grouped">
+                <p class="control">
+                    <button
+                        class="button is-small"
+                        [routerLink]="['/produto-editar', produto.id]"
+                    >
+                        <fa-icon [icon]="faEdit"></fa-icon> Editar
+                    </button>
+                </p>
+                <p class="control">
+                    <button
+                        class="button is-small"
+                        (click)="deleteProduto(produto.id)"
+                    >
+                        <fa-icon [icon]="faDelete"></fa-icon> Excluir
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

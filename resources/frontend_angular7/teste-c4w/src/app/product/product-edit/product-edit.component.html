@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="field">
+        <button class="button" color="accent" [routerLink]="['/produtos']">
+            Voltar
+        </button>
+    </div>
+    <div>
+        <h1 class="title is-3">Editar Produto</h1>
+    </div>
+
+    <form
+        class="container"
+        [formGroup]="productForm"
+        (ngSubmit)="updateProduto(productForm.value)"
+    >
+        <div class="field">
+            <div class="control">
+                <input
+                    name="title"
+                    placeholder="Título do Produto"
+                    formControlName="title"
+                />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input name="type" placeholder="Tipo" formControlName="type" />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input
+                    name="description"
+                    placeholder="description"
+                    formControlName="description"
+                />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input
+                    name="filename"
+                    placeholder="0.jpg"
+                    formControlName="filename"
+                />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input
+                    name="height"
+                    placeholder="400"
+                    formControlName="height"
+                />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input name="width" placeholder="100" formControlName="width" />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input name="rating" placeholder="0" formControlName="rating" />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <input
+                    name="price"
+                    placeholder="Preço"
+                    formControlName="price"
+                />
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button
+                    class="button is-primary"
+                    type="submit"
+                    [disabled]="!productForm.valid"
+                >
+                    Editar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

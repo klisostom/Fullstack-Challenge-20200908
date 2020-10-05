@@ -1,0 +1,93 @@
+<div class="block">
+    <a
+        class="button"
+        [routerLink]="['/produto-novo']"
+        routerLinkActive="router-link-active"
+        >Adicionar</a
+    >
+</div>
+
+<table class="table is-hoverable">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Rating</th>
+            <th>Price</th>
+            <th>Created</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{ product.title }}</td>
+            <td>{{ product.type }}</td>
+            <td>{{ product.rating }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.created_at | date: "dd-MM-yyyy" }}</td>
+            <td>
+                <span class="icon">
+                    <a
+                        class="button is-small"
+                        href="http://localhost:4200/produto-editar/{{
+                            product.id
+                        }}"
+                        ><fa-icon [icon]="faEdit"></fa-icon
+                    ></a>
+                </span>
+            </td>
+            <td>
+                <button
+                    class="button is-small"
+                    (click)="deleteProduto(product.id)">
+                    <fa-icon [icon]="faDelete"></fa-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<nav class="pagination is-rounded" role="navigation" aria-label="pagination">
+    <a class="pagination-previous" href="[last_page_url]">Previous</a>
+    <a class="pagination-next" href="[next_page_url]">Next page</a>
+
+    <ul class="pagination-list">
+        <li>
+            <a
+                class="pagination-link"
+                aria-label="Goto page 1"
+                href="[first_page_url]"
+                >{{ from }}</a
+            >
+        </li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        <li>
+            <a
+                class="pagination-link"
+                aria-label="Goto page next"
+                href="[next_page_url]"
+                >{{ next_page_url }}</a
+            >
+        </li>
+        <li>
+            <a
+                class="pagination-link is-current"
+                aria-label="Page 46"
+                aria-current="page"
+                >46
+            </a>
+        </li>
+        <li><a class="pagination-link" aria-label="Goto page 47">47</a></li>
+        <li><span class="pagination-ellipsis">&hellip;</span></li>
+        <li>
+            <a
+                class="pagination-link"
+                aria-label="Goto page 86"
+                href="[last_page]"
+                >{{ to }}</a
+            >
+        </li>
+    </ul>
+</nav>
